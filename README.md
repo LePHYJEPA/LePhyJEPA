@@ -1,16 +1,15 @@
-## Hi there 👋
+# LePhyJEPA: Physics-Informed Latent JEPA
 
-<!--
-**LePHYJEPA/LePhyJEPA** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Official implementation of "LePhyJEPA: Geometric and Semantic Learning Foundations"  
+Extends LeJEPA with physics-informed constraints.
 
-Here are some ideas to get you started:
+## Features
+- Physics-regularized latent prediction
+- Theorem-driven verification (non-collapse, physics compliance)
+- Ablation studies & baseline comparisons
+- Scalable architectures
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## Quick Start
+```bash
+pip install -r requirements.txt
+python training/train_core.py --config configs/core.yaml
