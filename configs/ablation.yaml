@@ -1,0 +1,50 @@
+# Ablation study configuration
+
+# Data configuration
+data:
+  img_size: [120, 160]
+  max_samples: 100
+  synthetic: true
+
+# Training configuration
+training:
+  batch_size: 4
+  epochs: 3  # Short training for ablation
+  lr: 3e-4
+  device: "cuda"  # Will fall back to CPU if not available
+
+# Ablation configurations to test
+ablation_configs:
+  - name: "Full LePhyJEPA"
+    lambda_phy: 0.1
+    sigma: 1.0
+    
+  - name: "No Physics"
+    lambda_phy: 0.0
+    sigma: 1.0
+    
+  - name: "No Energy Constraint"
+    lambda_phy: 0.1
+    sigma: 0.0
+    
+  - name: "Baseline (JEPA only)"
+    lambda_phy: 0.0
+    sigma: 0.0
+
+# Model configuration (base)
+model:
+  latent_dim: 32
+  physics_type: "depth_smoothness"
+
+# Evaluation
+evaluation:
+  theorem1_energy_tol: 0.2
+  theorem1_variance_thresh: 1e-6
+  theorem5_physics_thresh: 0.1
+  num_verification_samples: 10
+
+# Output
+output:
+  save_dir: "experiments/results"
+  save_plots: true
+  save_logs: true
